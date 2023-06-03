@@ -43,7 +43,7 @@ class RockPaperScissors extends Component {
     isGameOver: false,
     score: 0,
     playerSelected: {},
-    opponentSelected: choicesList[Math.ceil(Math.random() * 3) - 1],
+    opponentSelected: choicesList[Math.floor(Math.random() * 3)],
     matchResult: '',
   }
 
@@ -93,7 +93,7 @@ class RockPaperScissors extends Component {
     this.setState({
       isGameOver: false,
       playerSelected: {},
-      opponentSelected: choicesList[Math.ceil(Math.random() * 3) - 1],
+      opponentSelected: choicesList[Math.floor(Math.random() * 3)],
       matchResult: '',
     })
   }
@@ -127,7 +127,9 @@ class RockPaperScissors extends Component {
   }
 
   render() {
-    const {isGameOver, score} = this.state
+    const {isGameOver, score, opponentSelected} = this.state
+
+    console.log(opponentSelected)
 
     return (
       <AppContainer>
